@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBX Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/FBXLoader.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Scene setup
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Light
+        var light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
+
+        // Load FBX model
+        var loader = new THREE.FBXLoader();
+        loader.load('assets/models/ticket.fbx', function (object) {
+            scene.add(object);
+            object.position.y = -1;
+            object.scale.set(0.01, 0.01, 0.01);
+        });
+
+        camera.position.z = 5;
+
+        // Render loop
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', function () {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "251153200353",
+    "project_id": "mica-7b9db",
+    "storage_bucket": "mica-7b9db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251153200353:android:c3154c415ac0f23a3833a0",
+        "android_client_info": {
+          "package_name": "com.example.mica"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYPv4g-Du_SaZRk19RFYdHkpPA-JJw7g0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
